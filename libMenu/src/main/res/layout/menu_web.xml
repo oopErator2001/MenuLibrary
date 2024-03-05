@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/menuweb_linear"
+        android:layout_width="match_parent"
+        android:layout_height="270dp"
+        android:padding="5dp">
+
+        <WebView
+            android:id="@+id/menu_web"
+            android:layout_width="match_parent"
+            android:layout_height="237dp" />
+
+        <Button
+            android:id="@+id/menuweb_btn_back"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/menu_web"
+            android:layout_alignStart="@+id/menu_web" />
+
+        <Button
+            android:id="@+id/menuweb_btn_go"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/menu_web"
+            android:layout_alignEnd="@+id/menu_web" />
+    </RelativeLayout>
+</LinearLayout>

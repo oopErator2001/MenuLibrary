@@ -1,0 +1,48 @@
+plugins {
+    id 'com.android.library'
+    id("maven-publish")
+}
+
+android {
+    namespace 'lib.oop'
+    compileSdk 34
+
+    defaultConfig {
+        minSdk 24
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+publishing {
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/oopErator2001/MenuStore")
+            credentials {
+                username = project.findProperty("gpr.user") ?: System.getenv("oopErator2001")
+                password = project.findProperty("gpr.key") ?: System.getenv("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")
+            }
+        }
+    }
+    publications {
+        gpr(MavenPublication) {
+            from components.findByName('release')
+        }
+    }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.11.0'
+    implementation 'com.google.code.gson:gson:2.10'
+}
